@@ -28,7 +28,6 @@ public class User {
     @Column(nullable = false, length = 50)
     private String email;
 
-    @Enumerated(EnumType.STRING)
     private String role;
 
     @CreationTimestamp
