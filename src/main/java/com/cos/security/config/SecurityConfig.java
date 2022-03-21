@@ -29,7 +29,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/loginForm")
                 .loginProcessingUrl("/login")  // login 주소가 호출되면 시큐리티가 낚아채서 대신 로그인을 진행 (Controller 에서 login 을 안만들어도 됨)
-                .defaultSuccessUrl("/");    // 로그인 완료 후 이동할 페이지
+                .defaultSuccessUrl("/")    // 로그인 완료 후 이동할 페이지
+                .and()
+                .oauth2Login()
+                .loginPage("/loginForm");
 
     }
 }
