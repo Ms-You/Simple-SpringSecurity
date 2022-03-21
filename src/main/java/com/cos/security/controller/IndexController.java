@@ -4,6 +4,8 @@ import com.cos.security.model.User;
 import com.cos.security.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -61,5 +63,20 @@ public class IndexController {
 
         return "redirect:/loginForm";
     }
+
+//    @Secured("ROLE_ADMIN")
+//    @GetMapping("/info")
+//    public @ResponseBody String info(){
+//        return "개인정보";
+//    }
+
+//    // data 메서드가 실행되기 전에 실행됨, PostAuthorize 는 메서드가 종료되고 실행됨
+//    @PreAuthorize("hasRole('ROLE_MANAGER') or hasRole('ROLE_ADMIN')") // 권한을 여러 개 묶고 싶을 때 사용하며,
+//    @GetMapping("/info")
+//    public @ResponseBody String data(){
+//        return "데이터정보";
+//    }
+
+
 
 }
