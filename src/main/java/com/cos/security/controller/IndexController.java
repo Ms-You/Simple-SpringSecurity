@@ -1,6 +1,5 @@
 package com.cos.security.controller;
 
-import com.cos.security.model.RoleType;
 import com.cos.security.model.User;
 import com.cos.security.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -53,7 +52,7 @@ public class IndexController {
 
     @PostMapping("/join")
     public String join(User user){
-        user.setRole(RoleType.ROLE_USER);
+        user.setRole("ROLE_USER");
         String rawPassword = user.getPassword();
         String encPassword = bCryptPasswordEncoder.encode(rawPassword);
         user.setPassword(encPassword);

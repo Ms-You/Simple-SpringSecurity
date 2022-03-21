@@ -29,7 +29,7 @@ public class User {
     private String email;
 
     @Enumerated(EnumType.STRING)
-    private RoleType role;
+    private String role;
 
     @CreationTimestamp
     private Timestamp createDate;

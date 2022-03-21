@@ -25,7 +25,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().permitAll()  // 위 세가지 주소가 아니면 모두 허용함
                 .and()
                 .formLogin()
-                .loginPage("/loginForm");
+                .loginPage("/loginForm")
+                .loginProcessingUrl("/login")  // login 주소가 호출되면 시큐리티가 낚아채서 대신 로그인을 진행 (Controller 에서 login 을 안만들어도 됨)
+                .defaultSuccessUrl("/");    // 로그인 완료 후 이동할 페이지
 
     }
 }
